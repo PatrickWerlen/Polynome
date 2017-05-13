@@ -2,7 +2,7 @@ import java.util.LinkedList;
 
 public class Polynomial {
 
-    LinkedList<Term> poly = new LinkedList();
+    private LinkedList<Term> poly = new LinkedList();
 
     //create polynomial from an array of terms
     public Polynomial(Term[] terms){
@@ -21,43 +21,50 @@ public class Polynomial {
 
     //adds two polynomial together
     public void add(Polynomial p) {
-        if(poly.isEmpty()){
+        for (Term in : p.poly) {
             int index = 0;
-            for(Term in : p.poly){
-                poly.add(index++,in);
+            boolean added = false;
+            if (poly.isEmpty()) {
+                poly.add(index, in);
+                added = true;
             }
-        }else {
-            for (Term in : p.poly) {
-                int index = 0;
-                boolean added = false;
-                while (!added) {
-                    //addition of coef, when power is equal
-                    if (this.poly.get(index).power == in.power) {
-                        this.poly.get(index).coef += in.coef;
+            while (!added) {
+                //addition of coef, when power is equal
+                if (this.poly.get(index).power == in.power) {
+                    this.poly.get(index).coef += in.coef;
+                    added = true;
+                }
+                //add to list if power is bigger
+                else if (this.poly.get(index).power < in.power) {
+                    this.poly.add(index, in);
+                    added = true;
+                }
+                //inc index if power is smaller
+                else if (this.poly.get(index).power > in.power) {
+                    if (index + 1 == this.poly.size()) {
+                        poly.add((index + 1), in);
                         added = true;
-                    }
-                    //add to list if power is bigger
-                    else if (this.poly.get(index).power < in.power) {
-                        this.poly.add(index, in);
-                        added = true;
-                    }
-                    //inc index if power is smaller
-                    else if (this.poly.get(index).power > in.power) {
-                        if(index+1 == this.poly.size()){
-                            poly.add((index+1),in);
-                            added = true;
-                        }else index++;
-                    }
+                    } else index++;
                 }
             }
         }
     }
 
     public Polynomial sum(Polynomial p){
+        System.out.println("Before: " + this.poly);
         Polynomial tmp = new Polynomial();
-        tmp.poly = (LinkedList) this.poly.clone();
+        /*IMPORTANT needs to be done like this so that the
+        original termsvalues (@specificAdress) wont be changed in the
+        further process. NO .putAll(this.poly) ALLOWED!
+         */
+        for(Term term : this.poly){
+            int coef = term.coef;
+            int power = term.power;
+            tmp.poly.add(new Term(coef, power));
+        }
         tmp.add(p);
 
+        System.out.println("After: " + this.poly);
         return tmp;
     }
 

@@ -4,7 +4,7 @@ import java.util.TreeMap;
 
 public class PolynomialMap {
 
-    Map<Integer,Integer> poly = new TreeMap();
+    private Map<Integer,Integer> poly = new TreeMap();
 
     public PolynomialMap(Term term){
         poly.put(term.power, term.coef);
@@ -21,7 +21,7 @@ public class PolynomialMap {
     public void add(PolynomialMap p) {
         for(Map.Entry<Integer, Integer> entry : p.poly.entrySet()){
             if(poly.containsKey(entry.getKey())){
-                poly.put(entry.getKey(), (poly.get(entry.getKey())+entry.getValue()));
+                poly.put(entry.getKey(), poly.get(entry.getKey()) + entry.getValue());
             }else{
                 poly.put(entry.getKey(),entry.getValue());
             }
@@ -38,7 +38,7 @@ public class PolynomialMap {
 
     public PolynomialMap multiply(PolynomialMap p){
        PolynomialMap result = new PolynomialMap();
-       for(Map.Entry<Integer,Integer> multiC : poly.entrySet()){
+       for(Map.Entry<Integer,Integer> multiC : this.poly.entrySet()){
            Term multicand = new Term(multiC.getValue(),multiC.getKey());
            for(Map.Entry<Integer,Integer> multiP : p.poly.entrySet()){
                Term multiplyer = new Term(multiP.getValue(),multiP.getKey());
@@ -50,6 +50,7 @@ public class PolynomialMap {
        }
        return result;
    }
+
 
     @Override
     public String toString(){

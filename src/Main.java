@@ -13,6 +13,7 @@ public class Main {
         terms1[1] = new Term(26,1);
         terms1[2] = new Term(-25,0);
 
+
         //using TreeMap
         PolynomialMap polyM0 = new PolynomialMap(terms);
         PolynomialMap polyM1 = new PolynomialMap(terms1);
@@ -33,9 +34,9 @@ public class Main {
         Polynomial sum = poly0.sum(poly1);
         Polynomial result = poly0.multiply(poly1);
 
-        System.out.println("This calculations were made with a TreeMap:\n" +
-                polyM0.toString() + "\n" +
-                polyM1.toString() + "\n" +
+        System.out.println("This calculations were made with a LinkedList:\n" +
+                poly0.toString() + "\n" +
+                poly1.toString() + "\n" +
                 "The sum of these polynomials are\t" + sum.toString() + "\n" +
                 "The product of these polynomials is:\t" + result.toString() + "\n\n");
 
