@@ -6,7 +6,7 @@ public class Main {
         Term[] terms = new Term[3];
         terms[0] = new Term(5,10);
         terms[1] = new Term(3,2);
-        terms[2] = new Term(10,0);
+        terms[2] = new Term(10,1);
 
         Term[] terms1 = new Term[3];
         terms1[0] = new Term(10,7);
@@ -23,7 +23,7 @@ public class Main {
         System.out.println("This calculations were made with a TreeMap:\n" +
                 polyM0.toString() + "\n" +
                 polyM1.toString() + "\n" +
-                "The sum of these polynomials are\t" + sumM.toString() + "\n" +
+                "The sum of these polynomials is:\t\t" + sumM.toString() + "\n" +
                 "The product of these polynomials is:\t" + resultM.toString() + "\n");
 
         System.out.println("***--------------------------------------------------------------------------------------------***\n");
@@ -37,7 +37,7 @@ public class Main {
         System.out.println("This calculations were made with a LinkedList:\n" +
                 poly0.toString() + "\n" +
                 poly1.toString() + "\n" +
-                "The sum of these polynomials are\t" + sum.toString() + "\n" +
+                "The sum of these polynomials is:\t\t" + sum.toString() + "\n" +
                 "The product of these polynomials is:\t" + result.toString() + "\n\n");
 
     }

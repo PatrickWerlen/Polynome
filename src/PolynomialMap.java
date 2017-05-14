@@ -19,6 +19,10 @@ public class PolynomialMap {
     private PolynomialMap(){}
 
     public void add(PolynomialMap p) {
+        /*iterate through input polynomial
+        if power(key) already exist change the value (add)
+        else put a new key,value into the map
+         */
         for(Map.Entry<Integer, Integer> entry : p.poly.entrySet()){
             if(poly.containsKey(entry.getKey())){
                 poly.put(entry.getKey(), poly.get(entry.getKey()) + entry.getValue());
@@ -57,6 +61,7 @@ public class PolynomialMap {
         boolean isFirst = true;
         Map<Integer,Integer> reversed = new TreeMap<>(Collections.reverseOrder());
         reversed.putAll(poly);
+
         for(Map.Entry<Integer,Integer> entry : reversed.entrySet()){
             Term term = new Term(entry.getValue(), entry.getKey());
             if(isFirst){

@@ -62,7 +62,6 @@ public class Polynomial {
             tmp.poly.add(new Term(coef, power));
         }
         tmp.add(p);
-
         return tmp;
     }
 
