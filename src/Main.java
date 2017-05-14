@@ -26,7 +26,7 @@ public class Main {
                 "The sum of these polynomials is:\t\t" + sumM.toString() + "\n" +
                 "The product of these polynomials is:\t" + resultM.toString() + "\n");
 
-        System.out.println("***--------------------------------------------------------------------------------------------***\n");
+        System.out.println("***-------------------------------------------------------------------------------------------***\n");
 
         //using LinkedList
         Polynomial poly0 = new Polynomial(terms);
