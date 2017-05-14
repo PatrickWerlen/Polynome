@@ -51,7 +51,6 @@ public class Polynomial {
     }
 
     public Polynomial sum(Polynomial p){
-        System.out.println("Before: " + this.poly);
         Polynomial tmp = new Polynomial();
         /*IMPORTANT needs to be done like this so that the
         original termsvalues (@specificAdress) wont be changed in the
@@ -64,7 +63,6 @@ public class Polynomial {
         }
         tmp.add(p);
 
-        System.out.println("After: " + this.poly);
         return tmp;
     }
 

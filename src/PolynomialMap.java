@@ -51,7 +51,6 @@ public class PolynomialMap {
        return result;
    }
 
-
     @Override
     public String toString(){
         StringBuilder sB = new StringBuilder("p(x) = ");
